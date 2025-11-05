@@ -9,13 +9,17 @@ body {
     height: 100vh;
     background: grey;
 
+    .test {
+        position: absolute;
+    }
+
     .componentBox {}
 
     .panelMenu {
         position: absolute;
         top: 0;
         width: var(--listMenu_width);
-        height: var(--panelMenu_height);
+        height: 100%;
         border: 1px solid red;
     }
 

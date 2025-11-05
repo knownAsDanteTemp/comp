@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: grey;
+
+    .componentBox {}
+
+    .listMenuBox {
+        top: 0;
+        left: 0;
+        border: 1px solid red;
+        width: 200px;
+    }
+
+    .confMenuBox {
+        top: 0;
+        right: 0;
+        border: 1px solid red;
+        width: 200px;
+    }
+}

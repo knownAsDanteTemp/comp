@@ -1,19 +1,17 @@
 import * as element from "../scripts/modules/element.js"
 
-export const containers = (box) => {    /* only main style class */
-    const mainBox = element.add(box, "section", "mainBox", "mainBox")
-    const componentBox = element.add(mainBox, "div", "componentBox", "componentBox")
-    const listMenuBox = element.add(box, "section", "listMenuBox", "listMenuBox")
-    const confMenuBox = element.add(box, "section", "confMenuBox", "confMenuBox")
-    const controlsBox = element.add(box, "section", "controlsBox", "controlsBox")
-    const infoBox = element.add(box, "section", "infoBox", "infoBox")
+const addContainers = () => {
+    const mainBox = element.add(document.body, "section", "mainBox")
+    const componentBox = element.add(mainBox, "div", "componentBox")
+    const confMenuBox = element.add(document.body, "section", "confMenuBox")
+    const controlsBox = element.add(document.body, "section", "controlsBox")
+    const infoBox = element.add(document.body, "section", "infoBox")
 
-    return [ mainBox, componentBox, listMenuBox, confMenuBox, controlsBox, infoBox ]
+    return [mainBox, componentBox, confMenuBox, controlsBox, infoBox]
 }
 
-export const addStyles = () => {
+const addStyles = () => {
     const path = [
-        { rel: "shortcut icon", type: "image/x-icon", href: "app/assets/images/icons/logo_128.png" },
         { rel: "stylesheet", href: "app/styles/globalConf.css" },
         { rel: "stylesheet", href: "app/styles/globalClass.css" },
         { rel: "stylesheet", href: "app/styles/mainContainers.css" }
@@ -22,14 +20,13 @@ export const addStyles = () => {
     Object.entries(path).forEach(item => element.add(document.head, "link", null, "mainContainers", item[1]))
 }
 
-export const addClass = (array) => {
+const addClass = (array) => {
     const toAddClass = {
-        mainBox: ["max center"],
-        componentBox: ["relative max"],
-        listMenuBox: ["absolute panelMenu"],
-        confMenuBox: ["absolute panelMenu"],
-        controlsBox: ["absolute"],
-        infoBox: ["absolute"]
+        mainBox: ["mainBox max center"],
+        componentBox: ["componentBox relative max"],
+        confMenuBox: ["confMenuBox absolute panelMenu"],
+        controlsBox: ["controlsBox absolute"],
+        infoBox: ["infoBox absolute"]
     }
 
     array.forEach(item => {
@@ -39,3 +36,9 @@ export const addClass = (array) => {
         item.className = (newClassName)
     })
 }
+
+export const loadContainers = () => {
+    const containers = addContainers()
+    addStyles()
+    addClass(containers)
+}   

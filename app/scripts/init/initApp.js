@@ -1,11 +1,10 @@
-import * as init from "../loadContainers.js"
+import { loadContainers } from "../loadContainers.js"
+import * as iface from "./loadInterface.js"
 
-const main = () => {
-    const body = document.getElementsByTagName("body")[0]
+const main = async () => {
+    loadContainers()
 
-    const containers = init.containers(body)
-    init.addStyles()
-    init.addClass(containers)
+    await iface.loadMenuList()
 }
 
 main()

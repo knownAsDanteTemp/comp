@@ -1,4 +1,4 @@
-export const add = (container, tag, idName = null, classNames = null, objAttr = null) => {
+export const add = (container, tag, idName = null, classNames = null, objAttr = null, objProps = null) => {
     if (!tag || !container) {
         console.log("module newElement: missing parameters\nnot create element")
         return
@@ -12,6 +12,7 @@ export const add = (container, tag, idName = null, classNames = null, objAttr = 
         if (type === "object") createdElement.setAttribute(key, JSON.stringify(value))
         if (type === "string") createdElement.setAttribute(key, value)
     })
+    if (objProps) Object.entries(objProps).forEach(([key, value]) => createdElement[key] = value)
     container.appendChild(createdElement)
     return createdElement
 }

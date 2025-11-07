@@ -3,11 +3,12 @@ import * as element from "../scripts/modules/element.js"
 const addContainers = () => {
     const mainBox = element.add(document.body, "section", "mainBox")
     const componentBox = element.add(mainBox, "div", "componentBox")
-    const confMenuBox = element.add(document.body, "section", "confMenuBox")
+    const listMenuBox = element.add(document.body, "section", "listMenuBox")
+    const configMenuBox = element.add(document.body, "section", "configMenuBox")
     const controlsBox = element.add(document.body, "section", "controlsBox")
     const infoBox = element.add(document.body, "section", "infoBox")
 
-    return [mainBox, componentBox, confMenuBox, controlsBox, infoBox]
+    return [mainBox, componentBox, listMenuBox, configMenuBox, controlsBox, infoBox]
 }
 
 const addStyles = () => {
@@ -22,9 +23,10 @@ const addStyles = () => {
 
 const addClass = (array) => {
     const toAddClass = {
-        mainBox: ["mainBox max center"],
+        mainBox: ["mainBox relative max center"],
         componentBox: ["componentBox relative max"],
-        confMenuBox: ["confMenuBox absolute panelMenu"],
+        listMenuBox: ["listMenuBox absolute panelMenu"],
+        configMenuBox: ["configMenuBox absolute panelMenu"],
         controlsBox: ["controlsBox absolute"],
         infoBox: ["infoBox absolute"]
     }

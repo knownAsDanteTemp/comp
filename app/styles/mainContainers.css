@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     width: 100vw;
     height: 100vh;
@@ -18,13 +12,18 @@ body {
     .panelMenu {
         position: absolute;
         top: 0;
-        width: var(--listMenu_width);
+        width: var(--panel_width);
         height: 100%;
         border: 1px solid red;
     }
 
+    .listMenuBox {
+        left: 0;
+        transition: var(--panel_transition);
+    }
 
-    .confMenuBox {
+    .configMenuBox {
         right: 0;
+        transition: var(--panel_transition);
     }
 }

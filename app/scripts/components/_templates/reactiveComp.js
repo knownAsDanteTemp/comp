@@ -7,11 +7,10 @@ export class AttributeConfigurable extends HTMLElement {
         this.classStyle
         this.eventDom
         this.eventName
-        
+        this.sheetStyle
+
         this._initClass()
     }
-
-
 
     _initClass() {
         this._initDom()
@@ -46,33 +45,29 @@ export class AttributeConfigurable extends HTMLElement {
         this.dom.appendChild(this.classStyle)
     }
 
-    setProp(props){
-        Object.entries(props).forEach(([prop, value]) => {
-            console.log(prop, value)
-            this[prop] = value
-        })
-
-    }
-
-    event(par) {
-        this.eventDom.dispatchEvent(new CustomEvent(this.eventName, {detail: par} ))
+    event(dom, name, detail) {
+        dom.dispatchEvent(new CustomEvent(name, { 'detail': detail }))
     }
 
     getConfig(defaultConf) {
         let config = {}
-
         Object.entries(defaultConf).forEach(([key, value]) => {
-            const attrValue = this.getAttribute(key)
-            let newValue
+            const attrValue = JSON.parse(this.getAttribute("css"))[key]
             Array.isArray(value)
-                ? newValue = attrValue ? attrValue : value[0]
-                : newValue = attrValue ? attrValue : value
-            config[key] = newValue
+                ? config[key] = attrValue ? attrValue : value[0]
+                : config[key] = attrValue ? attrValue : value
         })
         return config
     }
 
     applyConfCss(cssConf) {
         Object.entries(cssConf).forEach(([key, value]) => { this.style.setProperty(`--${key}`, value) })
+    }
+
+    addLink(dom, href, rel) {
+        const link = document.createElement("link")
+        link.setAttribute("href", href)
+        link.setAttribute("rel", rel)
+        dom.appendChild(link)
     }
 }

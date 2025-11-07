@@ -1,3 +1,4 @@
+/* display & position */
 .relative {
     position: relative;
 }
@@ -6,7 +7,7 @@
     position: absolute;
 }
 
-center {
+.center {
     display: flex;
     justify-content: center;
     align-items: center;

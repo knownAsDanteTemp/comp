@@ -8,7 +8,7 @@
 
 :root {
     --panel_width: 200px;
-    --panel_transition: 600ms ease-in-out;
+    --panel_transition: 300ms ease-in-out;
 
     /* colors */
     --darkCrystal: rgba(30, 30, 30, 0.8);

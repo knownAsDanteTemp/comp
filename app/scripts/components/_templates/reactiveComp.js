@@ -8,6 +8,7 @@ export class AttributeConfigurable extends HTMLElement {
         this.eventDom
         this.eventName
         this.sheetStyle
+        this.containerControl = true
 
         this._initClass()
     }

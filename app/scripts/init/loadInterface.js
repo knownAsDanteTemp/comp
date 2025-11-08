@@ -1,7 +1,7 @@
 import * as element from "../modules/element.js"
 
 export const addListMenu = async () => {
-    const path = "../components/nano/BoxAutoHidden.js"
+    const path = "../components/nano/PanelAutoHidden.js"
     await import(path)
     const listMenuBox = document.getElementById("listMenuBox")
 
@@ -13,24 +13,31 @@ export const addListMenu = async () => {
             side: "left",
             margin: "10px",
             iconColor: "whitesmoke",
+            radius: "8px",
+            font: "Anta",
+            fontSize: "14px",
+            color: "whitesmoke",
             back: getComputedStyle(document.documentElement).getPropertyValue("--darkCrystal"),
+            blur: "4px",
             transition: `${getComputedStyle(listMenuBox).getPropertyValue("transition")}`
         },
         logic: {
-            icon: "menu",
+            title: "Components",
+            icon: "menu"
         }
     }
 
     const props = {
         eventDom: document,
         eventName: "listMenuSelection",
+        containerControl: true
     }
 
-    element.add(listMenuBox, "box-autohidden", "listMenuBox", null, config, props)
+    element.add(listMenuBox, "panel-autohidden", "listMenuBox", null, config, props)
 }
 
 export const addConfigMenu = async () => {
-    const path = "../components/nano/BoxAutoHidden.js"
+    const path = "../components/nano/PanelAutoHidden.js"
     await import(path)
     const configMenuBox = document.getElementById("configMenuBox")
 
@@ -42,10 +49,15 @@ export const addConfigMenu = async () => {
             side: "right",
             margin: "10px",
             iconColor: "whitesmoke",
+            radius: "8px",
+            font: "Anta",
+            fontSize: "14px",
+            color: "whitesmoke",
             back: getComputedStyle(document.documentElement).getPropertyValue("--darkCrystal"),
             transition: `${getComputedStyle(listMenuBox).getPropertyValue("transition")}`
         },
         logic: {
+            title: "Configuration",
             icon: "tune"
         }
     }
@@ -55,5 +67,5 @@ export const addConfigMenu = async () => {
         eventName: "configMenuSelection",
     }
 
-    element.add(configMenuBox, "box-autohidden", "confMenuBox", null, config, props)
+    element.add(configMenuBox, "panel-autohidden", "confMenuBox", null, config, props)
 }

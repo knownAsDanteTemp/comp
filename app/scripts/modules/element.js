@@ -1,9 +1,6 @@
 export const add = (container, tag, idName = null, classNames = null, objAttr = null, objProps = null) => {
-    if (!tag || !container) {
-        console.log("module newElement: missing parameters\nnot create element")
-        return
-    }
-    
+    if (!(container && tag)) throw new Error("Module ELEMENT ADD: \n>>> missing container or tag")
+
     const createdElement = document.createElement(tag)
     if (idName) createdElement.id = idName
     if (classNames) createdElement.className = classNames
